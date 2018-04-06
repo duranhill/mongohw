@@ -9,7 +9,7 @@ var port = 3000;
 
 // var app = express();
 
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://heroku_s3bmsghf:solo1234!@ds237389.mlab.com:37389/heroku_s3bmsghf";
 
 mongoose.Promise = Promise;
 mongoose.connect(MONGODB_URI,{
@@ -17,22 +17,25 @@ mongoose.connect(MONGODB_URI,{
 });
 
 
-request("http://advancedtrafficteam.com/request-a-quote/", function(error, response, html) {
+request("https://www.reddit.com", function(error, response, html) {
+	// siteTable_organic
+	// organic-listing
+	 // thing id-t3_8aa0ru linkflair linkflair-img odd  link 
 	var $ = cheerio.load(html);
 	var results = [];
-		$("a").each(function(i, element) {
-	var link = $(element).children().attr("href");
-    var title = $(element).children().text();
+		$(".thing").each(function(i, element) {
+			console.log( "---------------------------------------------------------", element.attribs['data-permalink']);
+	var link = "www.reddit.com" + element.attribs['data-permalink']
+//     var title = $(element).children().text();
 
-results.push({
-      title: title,
-      link: link
-    });
+// results.push({
+//       title: title,
+//       link: link
+//     });
   });
-	console.log(results);
+// 	console.log(results);
 });
 
-
-// app.listen(3000, function() {
+// /r/natureismetal/comments/8aac49/caiman_in_mid_bite/
 //   console.log("App running on port 3000!");
 // });
