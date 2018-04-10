@@ -39,7 +39,6 @@ request("https://www.reddit.com", function(error, response, html) {
 	var link = "www.reddit.com" + element.attribs['data-permalink']
     var title = $(element).children().text();
     // var img = $(element).children().img(),
-app.get()
 results.push({
       title: title,
       link: link,
